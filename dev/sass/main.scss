@@ -1,0 +1,121 @@
+@import "normalize";
+
+
+*, *:after, *:before{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+ text-align: center;    
+}
+
+h2{
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: auto;
+}
+
+.wrapper3d {
+    position: relative;
+    width: 20%;
+    height:362px;
+    float: left;
+    margin-right: 30px;
+    perspective: 800px;
+    border-radius: 10px; 
+
+    div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: #000;
+        transform-style: preserve-3d;
+        border-radius: 25px;
+        transition: transform 1s ease;       
+    }
+
+    .front{
+        backface-visibility: hidden;
+    }
+
+    .back{
+        transform: rotateY(-180deg);
+        backface-visibility: hidden;
+        border: 1px solid #000;
+    }
+
+    &:hover{
+        .front{
+            transform: rotateY(-180deg);
+        }
+
+        .back{
+            transform: rotateY(-360deg);
+        }
+
+        
+    }
+}
+
+.cart {
+    font-size: 50px;
+    line-height: 0.8;
+    color: #000;
+    position: absolute;
+
+    &:after{
+        content:'\2660';
+        display: block;
+        font-size: 75px;
+    } 
+
+    &--bottom {
+        right: 15px;
+        bottom: 15px;
+        transform: scale(-1);
+    }
+
+    &--top{
+        top:15px;
+        left:15px;
+    }
+    
+    &--hearts{
+        &:after{
+            content:'\2665';
+        }
+    }
+
+    &--clubs{
+        &:after{
+           content:'\2663'; 
+        }
+    }
+
+    &--diamonds{
+        &:after{
+           content:'\2666'; 
+        }
+    }
+
+    &--red{
+      color: red;  
+    }
+}
